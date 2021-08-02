@@ -1,0 +1,50 @@
+<template>
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <span class="slds-icon_container" title="account">
+                        <lightning-icon icon-name="standard:account" alternative-text="Account" title="Account"></lightning-icon>
+                        <span class="slds-assistive-text">account</span>
+                    </span>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <span>Account Details</span>
+                    </h2>
+                </div>
+            </header>
+        </div>
+        <footer class="slds-card__footer slds-text-align--left">
+            <template if:true={accounts.data}>
+                <template for:each={accounts.data} for:item="account">
+                    <div key={account.Id} class="slds-m-bottom_small slds-grid">
+                        <div class="slds-col slds-col_bump-right">
+                            <div class="slds-m-right--large">
+                                {account.Name} <br />
+                                <lightning-formatted-phone class="slds-m-bottom_medium" key={account.Id} value={account.Phone}></lightning-formatted-phone>
+                                <br />
+                                <br />
+                                <lightning-formatted-address
+                                    street={account.BillingStreet}
+                                    city={account.BillingCity}
+                                    country={account.BillingCountry}
+                                    province={account.BillingState}
+                                    postal-code={account.BillingPostalCode}
+                                ></lightning-formatted-address>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="slds-button ">
+                                <lightning-icon icon-name="utility:down" slot="media" size="x-small"></lightning-icon>
+                            </button>
+                        </div>
+                    </div>
+                </template>
+            </template>
+            <template if:true={defaults}>
+                {id}
+            </template>
+        </footer>
+    </article>
+</template>

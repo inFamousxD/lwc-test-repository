@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>AccountSelect</masterLabel>
+    <isExposed>true</isExposed>
+    <lightningMessageFields>
+        <fieldName>message</fieldName>
+        <description>Holds message</description>
+    </lightningMessageFields>
+</LightningMessageChannel>
+
+<!-- This format is sort of hard-coded and there's nothing to explain much. fieldName defines the variables that message channel will have. -->
